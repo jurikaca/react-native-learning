@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {View} from 'react-native';
+import {connect} from 'react-redux';
 
 import PlaceInput from '../../components/PlaceInput/PlaceInput';
-import { addPlace } from '../../store/actions/index';
+import {addPlace} from '../../store/actions/index';
 
 class SharePlaceScreen extends Component {
     constructor(props) {
@@ -17,15 +17,15 @@ class SharePlaceScreen extends Component {
                 this.props.navigator.toggleDrawer({
                     side: "left"
                 });
-            } 
-        }  
+            }
+        }
     }
 
     placeAddedHandler = placeName => {
         this.props.onAddPlace(placeName);
     }
 
-    render () {
+    render() {
         return (
             <View>
                 <PlaceInput onPlaceAdded={this.placeAddedHandler}/>
