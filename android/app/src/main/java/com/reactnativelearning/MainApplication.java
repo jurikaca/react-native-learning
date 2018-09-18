@@ -3,7 +3,6 @@ package com.reactnativelearning;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -27,8 +26,7 @@ public class MainApplication extends NavigationApplication implements ReactAppli
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-          new VectorIconsPackage()
+          new MainReactPackage()
       );
     }
 
@@ -48,6 +46,7 @@ public class MainApplication extends NavigationApplication implements ReactAppli
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
   }
+
   @Override
    public boolean isDebug() {
        // Make sure you are using BuildConfig from your own application
@@ -58,7 +57,7 @@ public class MainApplication extends NavigationApplication implements ReactAppli
        // Add additional packages you require here
        // No need to add RnnPackage and MainReactPackage
        return Arrays.<ReactPackage>asList(
-           // eg. new VectorIconsPackage()
+           new VectorIconsPackage()
        );
    }
 

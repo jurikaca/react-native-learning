@@ -5,6 +5,8 @@ import {connect} from "react-redux";
 import Icon from "react-native-vector-icons/Ionicons";
 import {deletePlace} from "../../store/actions/index";
 
+const trashIcon = (<Icon size={30} name="ios-trash" color="red"/>);
+
 class PlaceDetail extends Component {
     placeDeletedHandler = () => {
         this.props.onDeletePlace(this.props.selectedPlace.key);
@@ -21,7 +23,7 @@ class PlaceDetail extends Component {
                 <View>
                     <TouchableOpacity onPress={this.placeDeletedHandler}>
                         <View style={styles.deleteButton}>
-                            <Icon size={30} name="ios-trash" color="red"/>
+                            {trashIcon}
                         </View>
                     </TouchableOpacity>
                 </View>
