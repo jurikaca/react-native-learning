@@ -8,6 +8,7 @@ import PlaceDetailScreen from "./src/screens/PlaceDetail/PlaceDetail";
 import SideDrawer from "./src/screens/SideDrawer/SideDrawer";
 import configureStore from "./src/store/configureStore";
 import {Text, View} from "react-native";
+import SplashScreen from 'react-native-splash-screen';
 
 const store = configureStore();
 
@@ -53,6 +54,10 @@ Navigation.startSingleScreenApp({
 });
 
 export default class App extends React.Component {
+    componentDidMount() {
+        SplashScreen.hide();
+    }
+
     render() {
         return (
             <View>

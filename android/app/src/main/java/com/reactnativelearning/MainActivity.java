@@ -1,10 +1,17 @@
 package com.reactnativelearning;
 
+import android.os.Bundle;
 import com.reactnativenavigation.controllers.SplashActivity;
 
-import com.facebook.react.ReactActivity;
+//import com.facebook.react.ReactActivity;
+import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends SplashActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+       SplashScreen.show(this);
+       super.onCreate(savedInstanceState);
+    }
 
     /**
      * Returns the name of the main component registered from JavaScript.

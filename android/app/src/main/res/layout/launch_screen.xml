@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/blue"
+  android:gravity="center">
 
-    <item android:drawable="@color/blue" />
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        android:src="@mipmap/icon" />
 
-    <item
-        android:width="200dp"
-        android:height="200dp"
-        android:drawable="@mipmap/icon"
-        android:gravity="center"/>
 
-</layer-list>
+</LinearLayout>

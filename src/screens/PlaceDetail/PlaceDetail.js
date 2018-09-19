@@ -111,10 +111,16 @@ const styles = StyleSheet.create({
   }
 });
 
+const mapStateToProps = state => {
+    return {
+        places: state.places.places
+    };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     onDeletePlace: key => dispatch(deletePlace(key))
   };
 };
 
-export default connect(null, mapDispatchToProps)(PlaceDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceDetail);

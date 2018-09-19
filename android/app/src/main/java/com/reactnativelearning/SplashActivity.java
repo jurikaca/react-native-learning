@@ -1,16 +1,17 @@
 package com.reactnativelearning;
 
-import com.reactnativenavigation.controllers.SplashActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.facebook.react.ReactActivity;
+public class SplashActivity extends AppCompatActivity {
 
-public class MainActivity extends SplashActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    /**
-     * Returns the name of the main component registered from JavaScript.
-     * This is used to schedule rendering of the component.
-     */
-    protected String getMainComponentName() {
-        return "reactnativelearning";
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
