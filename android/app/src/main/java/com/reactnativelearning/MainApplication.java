@@ -68,6 +68,6 @@ public class MainApplication extends NavigationApplication implements ReactAppli
 
    @Override
    public String getJSMainModuleName() {
-       return "index";
+       return "index.android";
    }
 }

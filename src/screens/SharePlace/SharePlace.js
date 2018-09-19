@@ -1,38 +1,114 @@
-import React, {Component} from 'react';
-import {View} from 'react-native';
-import {connect} from 'react-redux';
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  ScrollView,
+  Image
+} from "react-native";
+import { connect } from "react-redux";
 
-import PlaceInput from '../../components/PlaceInput/PlaceInput';
-import {addPlace} from '../../store/actions/index';
+import { addPlace } from "../../store/actions/index";
+import PlaceInput from "../../components/PlaceInput/PlaceInput";
+import MainText from "../../components/UI/MainText/MainText";
+import HeadingText from "../../components/UI/HeadingText/HeadingText";
+import PickImage from "../../components/PickImage/PickImage";
 
 class SharePlaceScreen extends Component {
-    constructor(props) {
-        super(props);
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
-    }
+  static navigatorStyle = {
+    navBarButtonColor: "orange"
+  }
 
-    onNavigatorEvent = event => {
-        if (event.type === "NavBarButtonPress") {
-            if (event.id === "sideDrawerToggle") {
-                this.props.navigator.toggleDrawer({
-                    side: "left"
-                });
-            }
+  state = {
+    placeName: ""
+  };
+
+  constructor(props) {
+    super(props);
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+  }
+
+  onNavigatorEvent = event => {
+    if (event.type === "NavBarButtonPress") {
+      if (event.id === "sideDrawerToggle") {
+        this.props.navigator.toggleDrawer({
+          side: "left"
+        });
+      }
+    }
+  };
+
+  placeNameChangedHandler = val => {
+    this.setState({
+      placeName: val
+    });
+  };
+
+  placeAddedHandler = () => {
+    if (this.state.placeName.trim() !== "") {
+      this.props.onAddPlace(this.state.placeName);
+      this.props.navigator.switchToTab({
+        tabIndex: 0 // (optional) if missing, this screen's tab will become selected
+      });
+        if(this.props.places.length >= 0){
+          this.props.navigator.setTabBadge({
+            tabIndex: 0,
+            badge: this.props.places.length + 1,
+            badgeColor: '#006400',
+          });
         }
     }
+  };
 
-    placeAddedHandler = placeName => {
-        this.props.onAddPlace(placeName);
-    }
-
-    render() {
-        return (
-            <View>
-                <PlaceInput onPlaceAdded={this.placeAddedHandler}/>
-            </View>
-        );
-    }
+  render() {
+    return (
+      <ScrollView>
+        <View style={styles.container}>
+          <MainText>
+            <HeadingText>Share a Place with us!</HeadingText>
+          </MainText>
+          <PickImage />
+          <PlaceInput
+            placeName={this.state.placeName}
+            onChangeText={this.placeNameChangedHandler}
+          />
+          <View style={styles.button}>
+            <Button title="Share the Place!" onPress={this.placeAddedHandler} />
+          </View>
+        </View>
+      </ScrollView>
+    );
+  }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center"
+  },
+  placeholder: {
+    borderWidth: 1,
+    borderColor: "black",
+    backgroundColor: "#eee",
+    width: "80%",
+    height: 150
+  },
+  button: {
+    margin: 8
+  },
+  previewImage: {
+    width: "100%",
+    height: "100%"
+  }
+});
+
+const mapStateToProps = state => {
+    return {
+        places: state.places.places
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -40,4 +116,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(SharePlaceScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(SharePlaceScreen);

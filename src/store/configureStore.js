@@ -1,4 +1,4 @@
-import {combineReducers, compose, createStore} from 'redux';
+import { createStore, combineReducers, compose } from 'redux';
 
 import placesReducer from './reducers/places';
 

@@ -1,6 +1,5 @@
-import {Navigation} from "react-native-navigation";
-import {Provider} from "react-redux";
-import React from "react";
+import { Navigation } from "react-native-navigation";
+import { Provider } from "react-redux";
 
 import AuthScreen from "./src/screens/Auth/Auth";
 import SharePlaceScreen from "./src/screens/SharePlace/SharePlace";
@@ -14,32 +13,32 @@ const store = configureStore();
 
 // Register Screens
 Navigation.registerComponent(
-    "awesome-places.AuthScreen",
-    () => AuthScreen,
-    store,
-    Provider
+  "awesome-places.AuthScreen",
+  () => AuthScreen,
+  store,
+  Provider
 );
 Navigation.registerComponent(
-    "awesome-places.SharePlaceScreen",
-    () => SharePlaceScreen,
-    store,
-    Provider
+  "awesome-places.SharePlaceScreen",
+  () => SharePlaceScreen,
+  store,
+  Provider
 );
 Navigation.registerComponent(
-    "awesome-places.FindPlaceScreen",
-    () => FindPlaceScreen,
-    store,
-    Provider
+  "awesome-places.FindPlaceScreen",
+  () => FindPlaceScreen,
+  store,
+  Provider
 );
 Navigation.registerComponent(
-    "awesome-places.PlaceDetailScreen",
-    () => PlaceDetailScreen,
-    store,
-    Provider
+  "awesome-places.PlaceDetailScreen",
+  () => PlaceDetailScreen,
+  store,
+  Provider
 );
 Navigation.registerComponent(
-    "awesome-places.SideDrawer",
-    () => SideDrawer
+  "awesome-places.SideDrawer",
+  () => SideDrawer
 );
 
 // Start a App
