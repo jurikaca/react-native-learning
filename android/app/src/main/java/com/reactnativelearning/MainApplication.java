@@ -3,6 +3,8 @@ package com.reactnativelearning;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.imagepicker.ImagePickerPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -14,6 +16,8 @@ import java.util.List;
 
 import com.reactnativenavigation.NavigationApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.airbnb.android.react.maps.MapsPackage;
+import com.imagepicker.ImagePickerPackage;
 
 
 public class MainApplication extends NavigationApplication implements ReactApplication {
@@ -28,6 +32,8 @@ public class MainApplication extends NavigationApplication implements ReactAppli
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ImagePickerPackage(),
+            new MapsPackage(),
             new SplashScreenReactPackage()
       );
     }
@@ -59,7 +65,9 @@ public class MainApplication extends NavigationApplication implements ReactAppli
        // Add additional packages you require here
        // No need to add RnnPackage and MainReactPackage
        return Arrays.<ReactPackage>asList(
-           new VectorIconsPackage()
+           new VectorIconsPackage(),
+           new MapsPackage(),
+           new ImagePickerPackage()
        );
    }
 

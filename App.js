@@ -4,7 +4,11 @@ import { Provider } from "react-redux";
 import AuthScreen from "./src/screens/Auth/Auth";
 import SharePlaceScreen from "./src/screens/SharePlace/SharePlace";
 import FindPlaceScreen from "./src/screens/FindPlace/FindPlace";
+import HomeScreen from "./src/screens/Home/Home";
+import SearchPlacesScreen from "./src/screens/SearchPlaces/SearchPlaces";
+import MapScreen from "./src/screens/Map/Map";
 import PlaceDetailScreen from "./src/screens/PlaceDetail/PlaceDetail";
+import ProfileScreen from "./src/screens/ProfileScreen/ProfileScreen";
 import SideDrawer from "./src/screens/SideDrawer/SideDrawer";
 import configureStore from "./src/store/configureStore";
 import {Text, View} from "react-native";
@@ -40,6 +44,30 @@ Navigation.registerComponent(
 Navigation.registerComponent(
   "awesome-places.SideDrawer",
   () => SideDrawer
+);
+Navigation.registerComponent(
+  "awesome-places.ProfileScreen",
+  () => ProfileScreen,
+  store,
+  Provider
+);
+Navigation.registerComponent(
+    "awesome-places.SearchPlacesScreen",
+    () => SearchPlacesScreen,
+    store,
+    Provider
+);
+Navigation.registerComponent(
+    "awesome-places.MapScreen",
+    () => MapScreen,
+    store,
+    Provider
+);
+Navigation.registerComponent(
+    "awesome-places.HomeScreen",
+    () => HomeScreen,
+    store,
+    Provider
 );
 
 // Start a App
